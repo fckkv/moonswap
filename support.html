@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoonSwap™ | Support</title>
+  <style>
+    :root{
+      --bg:#080a0b;
+      --bg-2:#0c0f10;
+      --panel:#0f1214;
+      --panel-2:#0b0e10;
+      --text:#e9f7ef;
+      --muted:#a9b9b1;
+      --brand:#00ff80;
+      --brand-2:#18c97f;
+      --ring: rgba(0,255,128,.35);
+      --glow: 0 0 25px rgba(0,255,128,.2), inset 0 0 0 1px rgba(255,255,255,.02);
+      --radius:18px;
+      --radius-sm:12px;
+      --shadow: 0 14px 50px rgba(0,0,0,.45);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(0,255,128,.08), transparent 60%),
+        radial-gradient(900px 500px at 100% 10%, rgba(0,255,128,.06), transparent 60%),
+        var(--bg);
+      color:var(--text); line-height:1.55;
+    }
+
+    /* ===== Header / Nav ===== */
+    .nav{ position:sticky; top:0; z-index:50; backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(8,10,11,.75), rgba(8,10,11,.55)); border-bottom:1px solid rgba(255,255,255,.06); }
+    .nav-inner{ max-width:1200px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text) }
+    .logo{ width:36px; height:36px; border-radius:10px; background:
+      conic-gradient(from 210deg at 50% 50%, rgba(0,255,128,.9), rgba(0,255,128,.25) 45%, rgba(0,0,0,.2) 60%, rgba(0,255,128,.6) 100%);
+      box-shadow: 0 0 0 2px rgba(0,255,128,.15), 0 12px 28px rgba(0,255,128,.18); }
+    .brand span{ font-weight:800; letter-spacing:.3px }
+
+    .menu{ display:flex; gap:10px; align-items:center }
+    .btn-link{ text-decoration:none; color:var(--muted); padding:10px 14px; border-radius:10px; transition:.2s ease; }
+    .btn-link:hover{ color:var(--text); background:rgba(255,255,255,.04) }
+    .btn-cta{ text-decoration:none; background:linear-gradient(90deg, var(--brand), #6affb9);
+      color:#0b1310; padding:10px 16px; border-radius:12px; font-weight:800; box-shadow: var(--glow); transition:.2s }
+    .btn-cta:hover{ transform:translateY(-1px); filter:saturate(1.05); }
+
+    /* ===== Support Section ===== */
+    .support-wrapper{
+      max-width:800px;
+      margin:60px auto;
+      padding:40px 20px;
+      text-align:center;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .support-wrapper h1{
+      font-size:2.2rem;
+      margin-bottom:14px;
+      background: linear-gradient(180deg, #fff, #caffea 70%);
+      -webkit-background-clip:text;
+      color:transparent;
+      text-shadow:0 6px 40px rgba(0,255,128,.18);
+    }
+    .support-wrapper p{
+      color:var(--muted);
+      margin-bottom:30px;
+    }
+    .support-actions{
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .support-btn{
+      text-decoration:none;
+      padding:14px 20px;
+      border-radius:12px;
+      font-weight:700;
+      color:#0b1310;
+      background:linear-gradient(90deg, var(--brand), #6affb9);
+      box-shadow: var(--glow);
+      transition:.2s ease;
+    }
+    .support-btn:hover{
+      transform:translateY(-2px);
+      filter:saturate(1.05);
+    }
+
+    footer{ margin-top:40px; padding:28px 20px; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,.06); background: linear-gradient(180deg, rgba(255,255,255,.02), transparent) }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#home" aria-label="MoonSwap Home">
+        <div class="logo"></div><span>MoonSwap™</span>
+      </a>
+      <nav class="menu" aria-label="Primary">
+        <a class="btn-link" href="index.html">Home</a>
+        <a class="btn-link" href="exchange.html">Exchange</a>
+        <a class="btn-link" href="support.html">Support</a>
+        <a class="btn-cta" href="tos.html">Terms Of Service</a>
+      </nav>
+  </div>
+  </nav>
+
+  <section class="support-wrapper">
+    <h1>Need Help?</h1>
+    <p>Our team is available 24/7. Join our official channels to connect with support instantly.</p>
+    <div class="support-actions">
+      <a href="https://discord.gg/yourlink" target="_blank" class="support-btn">Join Discord</a>
+      <a href="https://t.me/yourlink" target="_blank" class="support-btn">Join Telegram</a>
+      <a href="mailto:support@moonswap.com" class="support-btn">Email Support</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 MoonSwap™ | All rights reserved.
+  </footer>
+</body>
+</html>

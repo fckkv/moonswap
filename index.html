@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MoonSwap™</title>
+  <meta name="description" content="MoonSwap™ — premium, secure, and modern crypto exchange." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#080a0b;
+      --bg-2:#0c0f10;
+      --panel:#0f1214;
+      --panel-2:#0b0e10;
+      --text:#e9f7ef;
+      --muted:#a9b9b1;
+      --brand:#00ff80;        /* primary green */
+      --brand-2:#18c97f;      /* secondary green */
+      --ring: rgba(0,255,128,.35);
+      --glow: 0 0 25px rgba(0,255,128,.2), inset 0 0 0 1px rgba(255,255,255,.02);
+      --radius:18px;
+      --radius-sm:12px;
+      --shadow: 0 14px 50px rgba(0,0,0,.45);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(0,255,128,.08), transparent 60%),
+        radial-gradient(900px 500px at 100% 10%, rgba(0,255,128,.06), transparent 60%),
+        var(--bg);
+      color:var(--text); line-height:1.55;
+    }
+
+    /* ===== Header / Nav ===== */
+    .nav{ position:sticky; top:0; z-index:50; backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(8,10,11,.75), rgba(8,10,11,.55)); border-bottom:1px solid rgba(255,255,255,.06); }
+    .nav-inner{ max-width:1200px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text) }
+    .logo{ width:36px; height:36px; border-radius:10px; background:
+      conic-gradient(from 210deg at 50% 50%, rgba(0,255,128,.9), rgba(0,255,128,.25) 45%, rgba(0,0,0,.2) 60%, rgba(0,255,128,.6) 100%);
+      box-shadow: 0 0 0 2px rgba(0,255,128,.15), 0 12px 28px rgba(0,255,128,.18); }
+    .brand span{ font-weight:800; letter-spacing:.3px }
+
+    .menu{ display:flex; gap:10px; align-items:center }
+    .btn-link{ text-decoration:none; color:var(--muted); padding:10px 14px; border-radius:10px; transition:.2s ease; }
+    .btn-link:hover{ color:var(--text); background:rgba(255,255,255,.04) }
+    .btn-cta{ text-decoration:none; background:linear-gradient(90deg, var(--brand), #6affb9);
+      color:#0b1310; padding:10px 16px; border-radius:12px; font-weight:800; box-shadow: var(--glow); transition:.2s }
+    .btn-cta:hover{ transform:translateY(-1px); filter:saturate(1.05); }
+
+    /* ===== Hero ===== */
+    .hero{ max-width:1200px; margin:0 auto; padding:84px 20px 40px; display:grid; grid-template-columns: 1.15fr .85fr; gap:34px; }
+    @media (max-width: 980px){ .hero{ grid-template-columns:1fr; padding-top:52px } }
+
+    .headline{
+      background: linear-gradient(180deg, #fff, #caffea 70%);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      font-size: clamp(36px, 5vw, 64px); line-height:1.05; font-weight:800; letter-spacing:.1px; margin: 6px 0 12px;
+      text-shadow: 0 6px 40px rgba(0,255,128,.18);
+    }
+    .sub{ color:var(--muted); max-width:620px; font-size:1.05rem }
+    .hero-actions{ display:flex; gap:12px; margin-top:22px; flex-wrap:wrap }
+    .btn-ghost{ text-decoration:none; color:var(--text); padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.1); background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); }
+
+    .hero-card{ padding:18px; border-radius:var(--radius); background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); box-shadow: var(--shadow); position:relative; overflow:hidden }
+    .hero-card:before{ content:""; position:absolute; inset:-1px; border-radius:var(--radius); background: radial-gradient(300px 140px at 10% 0%, rgba(0,255,128,.12), transparent 60%); pointer-events:none; }
+
+    /* ===== Logos / Trust ===== */
+    .trust{ max-width:1200px; margin:10px auto 0; padding:0 20px 10px; opacity:.9 }
+    .trust-row{ display:grid; grid-template-columns: repeat(5,1fr); gap:10px }
+    @media (max-width: 900px){ .trust-row{ grid-template-columns: repeat(3,1fr) } }
+    @media (max-width: 520px){ .trust-row{ grid-template-columns: repeat(2,1fr) } }
+    .trust .pill{ display:flex; align-items:center; justify-content:center; height:56px; border-radius:14px; background:var(--panel-2); border:1px solid rgba(255,255,255,.06); color:#b8c8c0; font-weight:600; letter-spacing:.4px }
+
+    /* ===== Metrics ===== */
+    .metrics{ max-width:1200px; margin:30px auto 0; padding:0 20px; display:grid; grid-template-columns: repeat(4, 1fr); gap:12px }
+    @media (max-width: 980px){ .metrics{ grid-template-columns: repeat(2, 1fr) } }
+    .metric{ padding:16px; border-radius:16px; background:var(--panel); border:1px solid rgba(255,255,255,.07) }
+    .metric .k{ font-size:1.2rem; font-weight:800; color:var(--brand) }
+    .metric .t{ font-size:.92rem; color:var(--muted) }
+
+    /* ===== Features ===== */
+    .features{ max-width:1200px; margin:34px auto; padding:0 20px; display:grid; grid-template-columns: repeat(3,1fr); gap:16px }
+    @media (max-width: 980px){ .features{ grid-template-columns:1fr } }
+    .feature{ padding:20px; border-radius:var(--radius); background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); box-shadow: var(--shadow); position:relative; overflow:hidden }
+    .feature:before{ content:""; position:absolute; inset:-1px; border-radius:var(--radius); background: radial-gradient(300px 140px at 10% 0%, rgba(0,255,128,.12), transparent 60%); pointer-events:none }
+    .feature h3{ margin:6px 0 8px; font-size:1.12rem }
+    .feature p{ margin:0; color:var(--muted); font-size:.98rem }
+
+    /* ===== Testimonials / Social Proof ===== */
+    .testimonials{ max-width:1200px; margin:8px auto 0; padding:0 20px 10px; display:grid; grid-template-columns: 1fr 1fr; gap:16px }
+    @media (max-width: 980px){ .testimonials{ grid-template-columns: 1fr } }
+    .quote{ padding:18px; border-radius:var(--radius-sm); background:var(--panel-2); border:1px solid rgba(255,255,255,.06); color:#cfe0d7 }
+    .quote .who{ display:flex; align-items:center; gap:10px; margin-top:10px; color:#a9b9b1; font-size:.92rem }
+    .avatar{ width:28px; height:28px; border-radius:50%; background:linear-gradient(135deg, #0f1512, #1b3326); box-shadow: 0 0 0 2px rgba(0,255,128,.18) }
+
+    /* ===== CTA Strip ===== */
+    .cta-strip{ max-width:1200px; margin:34px auto; padding:0 20px }
+    .cta-card{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; padding:18px; border-radius:var(--radius); background: linear-gradient(135deg, rgba(0,255,128,.12), rgba(0,255,128,.06)); border:1px solid rgba(0,255,128,.25); box-shadow: var(--shadow) }
+
+    /* ===== Footer ===== */
+    footer{ margin-top:40px; padding:28px 20px; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,.06); background: linear-gradient(180deg, rgba(255,255,255,.02), transparent) }
+
+    /* ===== Scroll reveal ===== */
+    .reveal{ opacity:0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease }
+    .reveal.show{ opacity:1; transform:none }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#home" aria-label="MoonSwap Home">
+        <div class="logo"></div><span>MoonSwap™</span>
+      </a>
+      <nav class="menu" aria-label="Primary">
+        <a class="btn-link" href="index.html">Home</a>
+        <a class="btn-link" href="exchange.html">Exchange</a>
+        <a class="btn-link" href="support.html">Support</a>
+        <a class="btn-cta" href="tos.html">Terms Of Service</a>
+      </nav>
+    </div>
+  </div>
+
+  <section id="home" class="hero">
+    <div>
+      <div class="btn-ghost" style="display:inline-flex; align-items:center; gap:10px"><span style="width:22px; height:22px; border-radius:8px; background: radial-gradient(circle at 60% 30%, rgba(0,255,128,.8), rgba(0,255,128,.25) 45%, transparent 60%); box-shadow: 0 0 0 2px rgba(0,255,128,.15)"></span> MoonSwap™</div>
+      <h1 class="headline">Clean. Secure. Built for pure simplicity.</h1>
+      <p class="sub">A premium experience with transparent rates and fast settlement. Institutional‑grade security, static quoting, and constant support.</p>
+      <div class="hero-actions">
+        <a class="btn-cta" href="exchange.html">Open Exchange</a>
+        <a class="btn-ghost" href="support.html">Get support</a>
+      </div>
+    </div>
+    <div class="hero-card reveal">
+      <div class="sub" style="margin:2px 0 8px">Live Pricing</div>
+      <div class="metrics" style="margin:0; padding:0; grid-template-columns:repeat(2,1fr)">
+        <div class="metric"><div class="k">BTC $64,230</div><div class="t">24h +1.2%</div></div>
+        <div class="metric"><div class="k">ETH $3,180</div><div class="t">24h +0.8%</div></div>
+        <div class="metric"><div class="k">USDT $1.00</div><div class="t">Peg</div></div>
+        <div class="metric"><div class="k">Latency &lt; 30ms</div><div class="t">Global PoPs</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust reveal" aria-label="Trusted by">
+    <div class="trust-row">
+      <div class="pill">LTC</div>
+      <div class="pill">BTC</div>
+      <div class="pill">USDT TETHER</div>
+      <div class="pill">ETH</div>
+      <div class="pill">SOL</div>
+    </div>
+  </section>
+
+  <section class="metrics reveal" aria-label="Exchange highlights">
+    <div class="metric"><div class="k">$2B+</div><div class="t">Lifetime Volume</div></div>
+    <div class="metric"><div class="k">99.99%</div><div class="t">Uptime</div></div>
+    <div class="metric"><div class="k">24/7</div><div class="t">Human Support</div></div>
+    <div class="metric"><div class="k">ISO27001</div><div class="t">Security Standard</div></div>
+  </section>
+
+  <section class="features" id="exchange" aria-label="Key features">
+    <article class="feature reveal">
+      <h3>Cold storage by default</h3>
+      <p>Multi‑sig wallets, hardware isolation, and continuous monitoring reduce counterparty risk without sacrificing speed.</p>
+    </article>
+    <article class="feature reveal">
+      <h3>Transparent pricing</h3>
+      <p>Clear quotes and instant settlement. No hidden spreads or surprise add‑ons. What you see is what you pay.</p>
+    </article>
+    <article class="feature reveal">
+      <h3>Seconds, not hours</h3>
+      <p>Modern rails and smart routing deliver consistent execution and finality across chains and payment methods.</p>
+    </article>
+  </section>
+
+  <section class="testimonials" id="markets" aria-label="What clients say">
+    <div class="quote reveal">
+      “MoonSwap™ executes large tickets without slippage. Our ops team loves the speed.”
+      <div class="who"><div class="avatar"></div> Alex R., OTC Desk Lead</div>
+    </div>
+    <div class="quote reveal">
+      “The UX feels enterprise‑grade, but onboarding was instant. Exactly what we needed.”
+      <div class="who"><div class="avatar"></div> Priya K., Family Office</div>
+    </div>
+  </section>
+
+
+  <footer id="support">
+    © 2025 MoonSwap™ | All rights reserved
+  </footer>
+
+  <script>
+    const onReveal = (entries, obs)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target); } });
+    };
+    const io = new IntersectionObserver(onReveal, {threshold:.1});
+    document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+  </script>
+</body>
+</html>

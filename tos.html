@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoonSwap™ — Terms of Service</title>
+  <style>
+    :root{
+      --bg:#080a0b;
+      --bg-2:#0c0f10;
+      --panel:#0f1214;
+      --panel-2:#0b0e10;
+      --text:#e9f7ef;
+      --muted:#a9b9b1;
+      --brand:#00ff80;        /* primary green */
+      --brand-2:#18c97f;      /* secondary green */
+      --ring: rgba(0,255,128,.35);
+      --glow: 0 0 25px rgba(0,255,128,.2), inset 0 0 0 1px rgba(255,255,255,.02);
+      --radius:18px;
+      --radius-sm:12px;
+      --shadow: 0 14px 50px rgba(0,0,0,.45);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(0,255,128,.08), transparent 60%),
+        radial-gradient(900px 500px at 100% 10%, rgba(0,255,128,.06), transparent 60%),
+        var(--bg);
+      color:var(--text); line-height:1.55;
+    }
+
+    /* ===== Header / Nav ===== */
+    .nav{ position:sticky; top:0; z-index:50; backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(8,10,11,.75), rgba(8,10,11,.55)); border-bottom:1px solid rgba(255,255,255,.06); }
+    .nav-inner{ max-width:1200px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text) }
+    .logo{ width:36px; height:36px; border-radius:10px; background:
+      conic-gradient(from 210deg at 50% 50%, rgba(0,255,128,.9), rgba(0,255,128,.25) 45%, rgba(0,0,0,.2) 60%, rgba(0,255,128,.6) 100%);
+      box-shadow: 0 0 0 2px rgba(0,255,128,.15), 0 12px 28px rgba(0,255,128,.18); }
+    .brand span{ font-weight:800; letter-spacing:.3px }
+
+    .menu{ display:flex; gap:10px; align-items:center }
+    .btn-link{ text-decoration:none; color:var(--muted); padding:10px 14px; border-radius:10px; transition:.2s ease; }
+    .btn-link:hover{ color:var(--text); background:rgba(255,255,255,.04) }
+    .btn-cta{ text-decoration:none; background:linear-gradient(90deg, var(--brand), #6affb9);
+      color:#0b1310; padding:10px 16px; border-radius:12px; font-weight:800; box-shadow: var(--glow); transition:.2s }
+    .btn-cta:hover{ transform:translateY(-1px); filter:saturate(1.05); }
+
+    /* ===== Content Section ===== */
+    .wrap{ max-width:900px; margin:0 auto; padding:60px 20px; }
+    .wrap h2{ font-size:2rem; margin-bottom:20px; text-align:center; background:linear-gradient(180deg, #fff, #caffea 70%);
+      -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 6px 40px rgba(0,255,128,.18); }
+    .wrap p{ margin:16px 0; padding:18px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08); border-radius:var(--radius-sm); box-shadow:var(--shadow); line-height:1.65; }
+
+    /* ===== Footer ===== */
+    footer{ margin-top:40px; padding:28px 20px; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,.06); background: linear-gradient(180deg, rgba(255,255,255,.02), transparent) }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="MoonSwap Home">
+        <div class="logo"></div><span>MoonSwap™</span>
+      </a>
+      <nav class="menu" aria-label="Primary">
+        <a class="btn-link" href="index.html">Home</a>
+        <a class="btn-link" href="exchange.html">Exchange</a>
+        <a class="btn-link" href="support.html">Support</a>
+        <a class="btn-cta" href="tos.html">Terms Of Service</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="wrap">
+    <h2>MoonSwap™ Terms of Service</h2>
+
+    <p><strong>1. Acceptance of Terms</strong><br>
+      By accessing and using MoonSwap™, you agree to be bound by these Terms of Service.</p>
+
+    <p><strong>2. Eligibility</strong><br>
+      All payments must be sent from a stable and widely used currency such as USD, EUR, or GBP.<br>
+      MoonSwap™ processes and settles all payments in GBP only.<br>
+      Example: if you send $10 USD and it converts to £8.50 GBP after processing, we will only issue £8.50 GBP worth of crypto 
+      (minus any applicable fees). By using MoonSwap™, you agree to this settlement method.</p>
+
+    <p><strong>3. Use of Services</strong><br>
+      Our exchange may only be used for lawful purposes. Users agree not to engage in fraud, scams, money laundering, 
+      or any other prohibited activities. Interference with the site, such as exploits or automated bots, is not allowed.</p>
+
+    <p><strong>4. Fees & Transactions</strong><br>
+      All fees are clearly stated on our Fees page. By using MoonSwap™, you acknowledge and accept these charges. 
+      Fees may change at any time, but the Fees page will always reflect the latest rates. 
+      All transactions and donations are final and non-refundable.</p>
+
+    <p><strong>5. Security</strong><br>
+      While we take steps to protect accounts, users are responsible for keeping their credentials safe. 
+      Always double-check wallet addresses before sending funds — blockchain transactions cannot be reversed.</p>
+
+    <p><strong>6. Risk Disclaimer</strong><br>
+      Cryptocurrency prices are highly volatile and unpredictable. MoonSwap™ is not responsible for losses 
+      caused by market fluctuations. Users should always do their own research before trading or donating.</p>
+
+    <p><strong>7. Limitation of Liability</strong><br>
+      MoonSwap™ is not liable for any loss of funds due to user error, third-party actions, technical issues, downtime, or hacks. 
+      Use of the platform is at your own risk.</p>
+
+    <p><strong>8. Termination</strong><br>
+      We reserve the right to suspend or terminate accounts at our discretion, including (but not limited to) cases of 
+      rule violations, fraudulent activity, or abuse of services.</p>
+
+    <p><strong>9. Modifications</strong><br>
+      We may update these Terms at any time. Continued use of MoonSwap™ after changes means you accept the new Terms. 
+      The "Last Updated" date at the top of this page will reflect when the Terms were changed.</p>
+
+    <p><strong>10. Contact</strong><br>
+      For any questions or support, please reach out to our Support team through our official contact channels.</p>
+  </section>
+
+  <footer>
+    © 2025 MoonSwap™ | All Rights Reserved
+  </footer>
+
+</body>
+</html>

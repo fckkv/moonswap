@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MoonSwap™ — Fees</title>
+  <meta name="description" content="MoonSwap™ — transparent fee schedule for PayPal ⇄ Crypto and Crypto ⇄ Crypto." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#080a0b;
+      --bg-2:#0c0f10;
+      --panel:#0f1214;
+      --panel-2:#0b0e10;
+      --text:#e9f7ef;
+      --muted:#a9b9b1;
+      --brand:#00ff80;        /* primary green */
+      --brand-2:#18c97f;      /* secondary green */
+      --ring: rgba(0,255,128,.35);
+      --glow: 0 0 25px rgba(0,255,128,.2), inset 0 0 0 1px rgba(255,255,255,.02);
+      --radius:18px;
+      --radius-sm:12px;
+      --shadow: 0 14px 50px rgba(0,0,0,.45);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(0,255,128,.08), transparent 60%),
+        radial-gradient(900px 500px at 100% 10%, rgba(0,255,128,.06), transparent 60%),
+        var(--bg);
+      color:var(--text); line-height:1.55;
+    }
+
+    /* ===== Header / Nav (identical to home) ===== */
+    .nav{ position:sticky; top:0; z-index:50; backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(8,10,11,.75), rgba(8,10,11,.55)); border-bottom:1px solid rgba(255,255,255,.06); }
+    .nav-inner{ max-width:1200px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text) }
+    .logo{ width:36px; height:36px; border-radius:10px; background:
+      conic-gradient(from 210deg at 50% 50%, rgba(0,255,128,.9), rgba(0,255,128,.25) 45%, rgba(0,0,0,.2) 60%, rgba(0,255,128,.6) 100%);
+      box-shadow: 0 0 0 2px rgba(0,255,128,.15), 0 12px 28px rgba(0,255,128,.18); }
+    .brand span{ font-weight:800; letter-spacing:.3px }
+
+    .menu{ display:flex; gap:10px; align-items:center }
+    .btn-link{ text-decoration:none; color:var(--muted); padding:10px 14px; border-radius:10px; transition:.2s ease; }
+    .btn-link:hover{ color:var(--text); background:rgba(255,255,255,.04) }
+    .btn-cta{ text-decoration:none; background:linear-gradient(90deg, var(--brand), #6affb9);
+      color:#0b1310; padding:10px 16px; border-radius:12px; font-weight:800; box-shadow: var(--glow); transition:.2s }
+    .btn-cta:hover{ transform:translateY(-1px); filter:saturate(1.05); }
+
+    /* ===== Hero ===== */
+    .hero{ max-width:1200px; margin:0 auto; padding:84px 20px 30px; display:grid; grid-template-columns: 1.15fr .85fr; gap:34px; }
+    @media (max-width: 980px){ .hero{ grid-template-columns:1fr; padding-top:52px } }
+
+    .headline{
+      background: linear-gradient(180deg, #fff, #caffea 70%);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      font-size: clamp(36px, 5vw, 64px); line-height:1.05; font-weight:800; letter-spacing:.1px; margin: 6px 0 12px;
+      text-shadow: 0 6px 40px rgba(0,255,128,.18);
+    }
+    .sub{ color:var(--muted); max-width:620px; font-size:1.05rem }
+
+    .hero-card{ padding:18px; border-radius:var(--radius); background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); box-shadow: var(--shadow); position:relative; overflow:hidden }
+    .hero-card:before{ content:""; position:absolute; inset:-1px; border-radius:var(--radius); background: radial-gradient(300px 140px at 10% 0%, rgba(0,255,128,.12), transparent 60%); pointer-events:none; }
+
+    /* ===== Section shells ===== */
+    .wrap{ max-width:1200px; margin:0 auto; padding:0 20px }
+
+    /* ===== Fee Tables (MoonSwap look) ===== */
+    .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:28px 0 }
+    @media (max-width: 1000px){ .grid{ grid-template-columns:1fr } }
+
+    .card{ padding:18px; border-radius:var(--radius); background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); box-shadow: var(--shadow); position:relative; overflow:hidden }
+    .card:before{ content:""; position:absolute; inset:-1px; border-radius:var(--radius); background: radial-gradient(300px 140px at 10% 0%, rgba(0,255,128,.12), transparent 60%); pointer-events:none }
+
+    .card h2{ margin:4px 0 10px; font-size:1.12rem }
+    .muted{ color:var(--muted) }
+
+    .table{ width:100%; border-collapse:collapse; border-radius:12px; overflow:hidden }
+    .table thead th{ text-align:left; font-weight:700; padding:12px; background:var(--panel); color:#caffea; border-bottom:1px solid rgba(255,255,255,.06) }
+    .table tbody td{ padding:12px; border-bottom:1px solid rgba(255,255,255,.06); color:var(--text) }
+    .table tr:hover td{ background:rgba(0,255,128,.06) }
+
+    /* ===== CTA strip ===== */
+    .cta-strip{ margin:34px 0; }
+    .cta-card{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; padding:18px; border-radius:var(--radius); background: linear-gradient(135deg, rgba(0,255,128,.12), rgba(0,255,128,.06)); border:1px solid rgba(0,255,128,.25); box-shadow: var(--shadow) }
+
+    /* ===== Footer ===== */
+    footer{ margin-top:40px; padding:28px 20px; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,.06); background: linear-gradient(180deg, rgba(255,255,255,.02), transparent) }
+
+    /* ===== Scroll reveal ===== */
+    .reveal{ opacity:0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease }
+    .reveal.show{ opacity:1; transform:none }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#home" aria-label="MoonSwap Home">
+        <div class="logo"></div><span>MoonSwap™</span>
+      </a>
+      <nav class="menu" aria-label="Primary">
+        <a class="btn-link" href="index.html">Home</a>
+        <a class="btn-link" href="exchange.html">Exchange</a>
+        <a class="btn-link" href="support.html">Support</a>
+        <a class="btn-cta" href="tos.html">Terms Of Service</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="hero wrap">
+    <div>
+      <div class="btn-link" style="display:inline-flex; align-items:center; gap:10px; border:1px solid rgba(255,255,255,.1); background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02))">
+        <span style="width:22px; height:22px; border-radius:8px; background: radial-gradient(circle at 60% 30%, rgba(0,255,128,.8), rgba(0,255,128,.25) 45%, transparent 60%); box-shadow: 0 0 0 2px rgba(0,255,128,.15)"></span> 
+        Transparent Fees
+      </div>
+      <h1 class="headline">Clear pricing. No hidden spreads.</h1>
+      <p class="sub">Minimum send of £5 • Fees are deducted from your deposit. View accepted coins at the homepage.</p>
+    </div>
+    <div class="hero-card reveal">
+      <div class="sub" style="margin:2px 0 8px">Exchange Overview</div>
+      <table class="table" aria-label="sample pricing">
+        <thead>
+          <tr><th>From</th><th>To</th><th>Fee</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Crypto</td><td>Crypto</td><td>5.0%</td></tr>
+          <tr><td>PayPal</td><td>Crypto</td><td>8.5%</td></tr>
+          <tr><td>Crypto</td><td>PayPal</td><td>6.5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="grid">
+
+      <article class="card reveal">
+        <h2>PayPal ➝ Crypto</h2>
+        <p class="muted" style="margin:0 0 10px">Instant quotes. Settlement in minutes.</p>
+        <table class="table">
+          <thead><tr><th>From</th><th>To</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr><td>PayPal</td><td>Any Crypto</td><td>8.5%</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card reveal">
+        <h2>Crypto ➝ PayPal</h2>
+        <p class="muted" style="margin:0 0 10px">Fast off-ramps with smart routing.</p>
+        <table class="table">
+          <thead><tr><th>From</th><th>To</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr><td>Any Crypto</td><td>PayPal</td><td>6.5%</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card reveal">
+        <h2>Crypto ➝ Crypto</h2>
+        <p class="muted" style="margin:0 0 10px">Flat rate across supported assets.</p>
+        <table class="table">
+          <thead><tr><th>From</th><th>To</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr><td>Any coin</td><td>Any coin</td><td>5.0%</td></tr>
+          </tbody>
+        </table>
+      </article>
+    </div>
+
+    <div class="cta-strip">
+      <div class="cta-card reveal">
+        <div>
+          <div style="font-weight:800; font-size:1.15rem">Need a custom quote?</div>
+          <div class="sub">OTC-friendly execution and priority routing for large tickets.</div>
+        </div>
+        <a class="btn-cta" href="support.html">Contact Support</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 MoonSwap™ | All rights reserved
+  </footer>
+
+  <script>
+    const onReveal = (entries, obs)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target); } });
+    };
+    const io = new IntersectionObserver(onReveal, {threshold:.1});
+    document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+  </script>
+</body>
+</html>
